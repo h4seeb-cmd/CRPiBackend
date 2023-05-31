@@ -34,6 +34,7 @@ def matrixAction(x):
             # debugging purpose
             print("[-] Printing: %s" % msg)
             show_message(device, msg, fill="white", font=proportional(CP437_FONT), scroll_delay=0.1)
+            
         if __name__ == "__main__":
         
             try:
