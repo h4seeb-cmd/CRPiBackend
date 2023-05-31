@@ -16,7 +16,7 @@ from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 import Adafruit_CharLCD as LCD
 from multiprocessing import Process
-from api.blinkTest import PostBinary
+
 
     # # API USING BINARY NUMBER
 
