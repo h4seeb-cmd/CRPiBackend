@@ -15,12 +15,8 @@ CORS(light_api, methods=['GET'], origins='*')
 class GetLight(Resource):
     def get(self):
         sensor = LightSensor()
-        try:
-            while True:
-                return("Light Level : " + str(sensor.readLight()) + " lx")
-                time.sleep(10)
-        except KeyboardInterrupt:
-            pass
+        light_level = sensor.readLight()
+        return(jsonify({"Light_Level": light_level}))
 
 
 api.add_resource(GetLight, '/get', endpoint='get')
