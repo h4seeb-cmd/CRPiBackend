@@ -33,7 +33,6 @@ app.register_blueprint(player_api)
 app.register_blueprint(binary_api)
 app.register_blueprint(app_projects) # register app pages
 
-
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly
