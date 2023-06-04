@@ -16,7 +16,7 @@ from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 import Adafruit_CharLCD as LCD
 from multiprocessing import Process
-from api.blinkTest import PostBinary
+
 
     # # API USING BINARY NUMBER
 
@@ -34,6 +34,7 @@ def matrixAction(x):
             # debugging purpose
             print("[-] Printing: %s" % msg)
             show_message(device, msg, fill="white", font=proportional(CP437_FONT), scroll_delay=0.1)
+            
         if __name__ == "__main__":
         
             try:

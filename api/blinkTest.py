@@ -160,12 +160,12 @@ class PostBinary(Resource):
                 # Flag variable to track if number has been printed
         flag = False
 
-        # try:
-        #     if not flag:
-        #         print("NUMBER:" + number)
-        #         flag = True
-        # except: 
-        #     print("No Number")
+        try:
+            if not flag:
+                print("NUMBER:" + number)
+                flag = True
+        except: 
+            print("No Number")
             
         matrixAction(number)
             
