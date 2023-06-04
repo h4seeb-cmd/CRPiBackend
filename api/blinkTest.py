@@ -19,7 +19,7 @@
 # class BinaryAPI:
 #     class binThing(Resource):
 #         def post(self):
-#                 endpoint = "http://127.0.0.1:4000/mediumish-theme-jekyll/powerful-things-markdown-editor/"
+#                 endpoint = "http://127.0.0.1:4000/mediumish-theme-jekyll/binary-showcase/"
 #                 body = request.get_json()
 #                 number = body.get("tag")
 #                 data = {
@@ -134,7 +134,8 @@ import traceback
 from flask import Blueprint, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
-from api.matrixTest import matrixAction
+from api.matrixTest import matrix
+from api.matrixTest import lcdAction
 
 
 
@@ -151,7 +152,7 @@ class GetBinary(Resource):
 
 class PostBinary(Resource):
     def post(self):
-        endpoint = "http://127.0.0.1:4000/mediumish-theme-jekyll/powerful-things-markdown-editor/"
+        endpoint = "http://127.0.0.1:4000/mediumish-theme-jekyll/binary-showcase/"
         body = request.get_json()
         number = body.get("tag")
         data = {
@@ -161,14 +162,16 @@ class PostBinary(Resource):
         flag = False
 
         try:
-            if not flag:
+            if flag == False:
                 print("NUMBER:" + number)
+                            
+                matrix(str(int(number, 2)))
+                lcdAction(number)
+            
                 flag = True
-        except: 
+        except:
             print("No Number")
-            
-        matrixAction(number)
-            
+
         try:
             response = requests.post("http://127.0.0.1:8086/api/binary/post", json=data, headers={'Content-Type': 'application/json'})
             if response.status_code == 200:
@@ -192,4 +195,3 @@ def after_request(response):
 
 api.add_resource(GetBinary, '/get', endpoint='get')
 api.add_resource(PostBinary, '/post', endpoint='post')
-
