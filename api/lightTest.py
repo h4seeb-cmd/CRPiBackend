@@ -55,7 +55,7 @@ class LightSensor():
         data = bus.read_i2c_block_data(self.DEVICE,self.ONE_TIME_HIGH_RES_MODE_1)
         return self.convertToNumber(data)
 
-def main():
+def getLightLvl():
 
     sensor = LightSensor()
     try:
@@ -66,5 +66,5 @@ def main():
         pass
 
 if __name__ == "__main__":
-    main()
+    getLightLvl()
 
