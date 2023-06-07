@@ -4,7 +4,7 @@ import traceback
 from flask import Blueprint, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
-# from api.weatherLCD import lcdOn
+from api.weatherLCD import lcdOn
 
 weather_api = Blueprint('weather_api', __name__, url_prefix='/api/weather')
 api = Api(weather_api)
@@ -36,10 +36,13 @@ class PostWeather(Resource):
         except Exception:
             print(traceback.format_exc())
             return {"error": "Internal server error"}, 500
+
 # @api.after_request
+
 def after_request(response):
     response.headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
     return response
 api.add_resource(GetWeather, '/get', endpoint='get')
 api.add_resource(PostWeather, '/post', endpoint='post')
+
