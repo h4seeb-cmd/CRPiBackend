@@ -15,6 +15,7 @@ from api.covid import covid_api # Blueprint import api definition
 from api.joke import joke_api # Blueprint import api definition
 from api.user import user_api # Blueprint import api definition
 from api.player import player_api
+from api.weather import weather_api
 from api.blinkTest import binary_api
 from api.lightPost import light_api
 
@@ -30,6 +31,7 @@ app.register_blueprint(joke_api) # register api routes
 app.register_blueprint(covid_api) # register api routes
 app.register_blueprint(user_api) # register api routes
 app.register_blueprint(player_api)
+app.register_blueprint(weather_api)
 app.register_blueprint(binary_api)
 app.register_blueprint(light_api)
 app.register_blueprint(app_projects) # register app pages
